@@ -1,5 +1,5 @@
 //just importing something with the file name imports everything from the file
-import '../less/main.less';
+import './less/main.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/header';
