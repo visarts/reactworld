@@ -1,0 +1,37 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import GatewayService from '../services/gatewayService';
+
+export default class Header extends React.Component {
+  constructor (props, gatewayService) {
+    super (props);
+    this.state = {
+      stuff: ''
+    }
+    this.gatewayService = new GatewayService;
+  }
+
+  // or use componentWillMount to make the async call beforehand
+  componentDidMount () {
+    this.getData({ ID: 493489, portal: 'asdfkdj' });
+  }
+
+  getData (params) {
+    this.gatewayService.get(params).then(results => {
+      let newState = this.state;
+      if (results.body) {
+        newState.newStuff = results.body;
+      } else {
+        newState.newStuff = results;
+      }
+      this.setState(newState);
+    });
+  }
+  render () {
+    return (
+      <div>This is the header component and here is the data:
+        <p>{ this.state.newStuff }</p>
+      </div>
+    );
+  }
+}
