@@ -7,7 +7,7 @@ export default class Home extends React.Component {
   }
   render() {
     return (
-      <div>This is the home component</div>
+      <div id="content">This is the home component <span>This is some colored text</span></div>
     );
   }
 }
