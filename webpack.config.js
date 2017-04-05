@@ -9,7 +9,6 @@ module.exports = {
   },
   plugins: [
 		new CleanWebpackPlugin('dist'),
-		new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
@@ -21,23 +20,23 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.less$/,
-				loader: 'style!css!less'
+				loader: 'style-loader!css-loader!less-loader'
 			},
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'babel',
+				loader: 'babel-loader',
         query: {
            presets: ['es2015', 'react']
         }
 			},
       {
         test: /\.html$/,
-        loader: 'html'
+        loader: 'html-loader'
       },
       {
         test: /\.jpg$/,
-        loader: 'file'
+        loader: 'file-loader'
       }
 		]
 	}
