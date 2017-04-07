@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/app.js'],
+  entry: ['./src/index.js'],
   output: {
     path: __dirname + '/dist',
     filename: 'bbtest.js'

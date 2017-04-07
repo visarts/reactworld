@@ -1,5 +1,4 @@
 //just importing something with the file name imports everything from the file
-import './less/main.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/header';
@@ -13,21 +12,18 @@ export default class App extends React.Component {
     super();
     this.state = {
       prop1: 'prop 1',
-      prop2: 'prop 2'
+      prop2: 'prop 2',
+      list: ['apple', 'orange', 'banana']
     };
   }
 
   render() {
     return (
       <div className="mainApp">
-        <Header pdf={this.state} dolomite="tasdf" />
-        <Home />
+        <Header />
+        <Home values={this.state} />
         <Footer />
       </div>
     );
   }
-
-
 }
-
-ReactDOM.render(<App />, document.getElementById('app'));
