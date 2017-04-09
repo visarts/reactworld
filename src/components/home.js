@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grid, Col, Row } from 'react-bootstrap';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -20,9 +19,6 @@ export default class Home extends React.Component {
             })
           }
         </ul>
-        <Grid>
-
-        </Grid>
       </div>
     );
   }

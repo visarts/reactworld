@@ -25,7 +25,7 @@ export default class App extends React.Component {
   }
 
   // will change a specific fruits object key by the value of the provided event
-  changeFruit (key, e) {console.log(e.target.value);
+  changeFruit (key, e) {
     let fruitValue = parseInt(e.target.value);
     if (Number.isInteger(fruitValue)) {
       this.setState({ fruits: Object.assign(this.state.fruits, { [key]: fruitValue })});
