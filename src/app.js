@@ -10,19 +10,34 @@ import Footer from './components/footer'
 export default class App extends React.Component {
   constructor() {
     super();
+
     this.state = {
-      prop1: 'prop 1',
-      prop2: 'prop 2',
-      list: ['apple', 'orange', 'banana']
+      fruits: {
+        bananas: 10,
+        oranges: 5,
+        grapes: 11,
+        apples: 8
+      }
     };
+    // by binding the parent function in the constructor,
+    //   the child components can call it when passed by props
+    this.changeFruit = this.changeFruit.bind(this);
+  }
+
+  // will change a specific fruits object key by the value of the provided event
+  changeFruit (key, e) {console.log(e.target.value);
+    let fruitValue = parseInt(e.target.value);
+    if (Number.isInteger(fruitValue)) {
+      this.setState({ fruits: Object.assign(this.state.fruits, { [key]: fruitValue })});
+    }
   }
 
   render() {
     return (
       <div className="mainApp">
         <Header />
-        <Home values={this.state} />
-        <Footer />
+        <Home values={this.state.fruits} />
+        <Footer values={this.state.fruits} changeFruit={this.changeFruit} />
       </div>
     );
   }

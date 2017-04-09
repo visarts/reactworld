@@ -14,29 +14,30 @@ module.exports = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.NamedModulesPlugin()
 	],
   module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.less$/,
-				loader: 'style-loader!css-loader!less-loader'
+				use: 'style-loader!css-loader!less-loader'
 			},
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader',
+				use: 'babel-loader',
         query: {
            presets: ['es2015', 'react']
         }
 			},
       {
         test: /\.html$/,
-        loader: 'html-loader'
+        use: 'html-loader'
       },
       {
         test: /\.jpg$/,
-        loader: 'file-loader'
+        use: 'file-loader'
       }
 		]
 	}
