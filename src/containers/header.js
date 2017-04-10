@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import GatewayService from '../services/gatewayService';
+import '../less/header.less';
 
 export default class Header extends React.Component {
   constructor (props, gatewayService) {
@@ -29,7 +29,7 @@ export default class Header extends React.Component {
   }
   render () {
     return (
-      <div id="header">
+      <div id="reactworld_header">
         <h1>This is the header component and here is the data:</h1>
         <p><span>{ this.state.newStuff }</span></p>
       </div>

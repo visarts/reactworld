@@ -1,5 +1,7 @@
-var webpack = require('webpack');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   entry: ['./src/index.js'],
@@ -9,6 +11,8 @@ module.exports = {
   },
   plugins: [
 		new CleanWebpackPlugin('dist'),
+    new ExtractTextPlugin('styles.css'),
+    new OptimizeCssAssetsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
@@ -19,16 +23,22 @@ module.exports = {
 	],
   module: {
 		rules: [
+
 			{
-				test: /\.less$/,
-				use: 'style-loader!css-loader!less-loader'
+				test: /\.(less|css)$/,
+				use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!less-loader'
+        })
 			},
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: 'babel-loader',
-        query: {
-           presets: ['es2015', 'react']
+				use: {
+          loader: 'babel-loader',
+          options: {
+             presets: ['es2015', 'react']
+          }
         }
 			},
       {
@@ -38,6 +48,22 @@ module.exports = {
       {
         test: /\.jpg$/,
         use: 'file-loader'
+      },
+      {
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        use: 'url?limit=10000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        use: 'url?limit=10000&mimetype=application/octet-stream'
+      },
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        use: 'file'
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: 'url?limit=10000&mimetype=image/svg+xml'
       }
 		]
 	}

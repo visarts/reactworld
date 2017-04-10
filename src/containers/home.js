@@ -1,4 +1,5 @@
 import React from 'react';
+import '../less/home.less';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -6,7 +7,7 @@ export default class Home extends React.Component {
   }
   render() {
     return (
-      <div id="content">
+      <div id="reactworld_home">
         This is the home component <span>This is some colored text</span>
         <ul className="fruitsDisplay">
           {

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import '../less/footer.less';
 
 export default class Footer extends React.Component {
   constructor(props) {
@@ -7,7 +9,7 @@ export default class Footer extends React.Component {
 
   render() {
     return (
-      <div id="footer">
+      <div id="reactworld_footer">
         This is the footer component
         <ul className="fruitsInput">
           {
@@ -15,11 +17,14 @@ export default class Footer extends React.Component {
               return (
                 <li>
                   <strong>{key}: </strong>
-                  <input type="text" value={this.props.values[key]} onChange={this.props.changeFruit.bind(this, key)} />
+                  <input type="text" size="4" value={this.props.values[key]} onChange={this.props.changeFruit.bind(this, key)} />
                 </li>
               )
             })
           }
+          <li>
+            <Button bsStyle="success" onClick={this.props.resetFruit.bind(this)}>Reset</Button>
+          </li>
         </ul>
       </div>
 
