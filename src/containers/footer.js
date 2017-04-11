@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import '../less/footer.less';
+//import '../less/footer.less';
 
 export default class Footer extends React.Component {
   constructor(props) {

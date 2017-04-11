@@ -1,7 +1,7 @@
 import React from 'react';
 import GatewayService from '../services/gatewayService';
 import Nav from '../components/nav';
-import '../less/header.less';
+//import '../less/header.less';
 
 export default class Header extends React.Component {
   constructor (props, gatewayService) {
@@ -33,7 +33,7 @@ export default class Header extends React.Component {
       <div id="reactworld_header">
         <h1>This is the header component and here is the data:</h1>
         <p><span>{ this.state.newStuff }</span></p>
-        <Nav />
+        <Nav values={this.props.values} />
       </div>
     );
   }

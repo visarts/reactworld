@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./src/less/styleMap.less', './src/index.js'],
   output: {
     path: __dirname + '/dist',
     filename: 'bbtest.js'
@@ -27,8 +27,7 @@ module.exports = {
 			{
 				test: /\.(less|css)$/,
 				use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!less-loader'
+          use: ['css-loader', 'less-loader']
         })
 			},
 			{

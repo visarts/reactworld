@@ -45,7 +45,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="mainApp">
-        <Header />
+        <Header values={this.state.fruits} />
         <Home values={this.state.fruits} />
         <Footer values={this.state.fruits} changeFruit={this.changeFruit} resetFruit={this.resetFruit} />
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../less/home.less';
+//import '../less/home.less';
 
 export default class Home extends React.Component {
   constructor(props) {
