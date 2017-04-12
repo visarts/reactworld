@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-//import '../less/footer.less';
+import '../less/footer.less';
 
 export default class Footer extends React.Component {
   constructor(props) {
@@ -9,9 +9,9 @@ export default class Footer extends React.Component {
 
   render() {
     return (
-      <div id="reactworld_footer">
+      <div styleName="reactworld_footer">
         This is the footer component
-        <ul className="fruitsInput">
+        <ul styleName="fruitsInput">
           {
             Object.keys(this.props.values).map(key => {
               return (

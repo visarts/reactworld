@@ -4,14 +4,17 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/less/styleMap.less', './src/index.js'],
+  entry: [/*'./src/less/shared/global.less', */'./src/index.js'],
   output: {
     path: __dirname + '/dist',
     filename: 'bbtest.js'
   },
   plugins: [
 		new CleanWebpackPlugin('dist'),
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin({
+      filename: 'styles.css',
+      allChunks: true
+    }),
     new OptimizeCssAssetsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -23,11 +26,16 @@ module.exports = {
 	],
   module: {
 		rules: [
-
 			{
-				test: /\.(less|css)$/,
-				use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'less-loader']
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?importLoaders=1&modules&localIdentName=[name]___[local]',
+            'postcss-loader?parser=postcss-less',
+            'less-loader'
+          ]
         })
 			},
 			{
@@ -36,6 +44,17 @@ module.exports = {
 				use: {
           loader: 'babel-loader',
           options: {
+            plugins: [
+                [
+                  'react-css-modules',
+                  {
+                    'generateScopedName': '[name]___[local]',
+                    'filetypes': {
+                      '.less': 'postcss-less'
+                    }
+                  }
+                ]
+              ],
              presets: ['es2015', 'react']
           }
         }

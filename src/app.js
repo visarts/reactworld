@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Header from './containers/header';
 import Home from './containers/home';
 import Footer from './containers/footer'
+import Quotebox from './components/quotebox';
 //import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 //use 'import * as varName from ...' if the exporting file has multiple export statements
 //then you'd access each exported object by referencing varName.objectName
@@ -18,6 +19,23 @@ export default class App extends React.Component {
     //   the child components can call it when passed by props
     this.changeFruit = this.changeFruit.bind(this);
     this.resetFruit = this.resetFruit.bind(this);
+  }
+
+  renderApp () {
+    ReactDOM.render(<Quotebox />, document.getElementById('quotebox'));
+    ReactDOM.render(<Header values={this.state.fruits} resetFruit={this.resetFruit} />, document.getElementById('header'));
+    ReactDOM.render(<Home values={this.state.fruits} />, document.getElementById('home'));
+    ReactDOM.render(<Footer values={this.state.fruits} changeFruit={this.changeFruit} resetFruit={this.resetFruit} />, document.getElementById('footer'));
+  }
+  // 'componentDidUpdate' doesn't work here
+  // render the initial load
+  componentDidMount () {
+    this.renderApp();
+  }
+
+  // render when the state changes
+  componentDidUpdate () {
+    this.renderApp();
   }
 
   getState () {
@@ -43,12 +61,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="mainApp">
-        <Header values={this.state.fruits} />
-        <Home values={this.state.fruits} />
-        <Footer values={this.state.fruits} changeFruit={this.changeFruit} resetFruit={this.resetFruit} />
-      </div>
-    );
+    return false;
   }
 }
