@@ -7,13 +7,16 @@ module.exports = {
   entry: ['./src/less/shared/global.less', './src/index.js'],
   output: {
     path: __dirname + '/dist',
-    filename: 'bbtest.js'
+    filename: '[name].js'
   },
   plugins: [
 		new CleanWebpackPlugin('dist'),
     new ExtractTextPlugin({
-      filename: 'styles.css',
+      filename: '[name].styles.css',
       allChunks: true
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common'
     }),
     new OptimizeCssAssetsPlugin(),
     new webpack.DefinePlugin({
@@ -59,10 +62,6 @@ module.exports = {
           }
         }
 			},
-      {
-        test: /\.html$/,
-        use: 'html-loader'
-      },
       {
         test: /\.jpg$/,
         use: 'file-loader'
