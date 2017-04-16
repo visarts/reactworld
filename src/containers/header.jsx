@@ -54,7 +54,7 @@ export default class Header extends React.Component {
         <h1>{this.state.headline}</h1>
         <p><span styleName={ this.state.spanClass }>{ this.state.newStuff }</span></p>
         <Nav
-          values={this.props.values}
+          values={this.props.values.fruits}
           resetFruit={this.props.resetFruit}
           changeHeadline={this.changeHeadline}
           changeSpanColor={this.changeSpanColor}  />

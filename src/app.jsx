@@ -3,8 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './containers/header';
 import Home from './containers/home';
-import Footer from './containers/footer'
+import Footer from './containers/footer';
 import Quotebox from './components/quotebox';
+import ConfigService from './services/configService';
+
 //import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 //use 'import * as varName from ...' if the exporting file has multiple export statements
 //then you'd access each exported object by referencing varName.objectName
@@ -19,18 +21,37 @@ export default class App extends React.Component {
     //   the child components can call it when passed by props
     this.changeFruit = this.changeFruit.bind(this);
     this.resetFruit = this.resetFruit.bind(this);
+    this.configService = new ConfigService;
   }
 
   renderApp () {
     ReactDOM.render(<Quotebox />, document.getElementById('quotebox'));
-    ReactDOM.render(<Header values={this.state.fruits} resetFruit={this.resetFruit} />, document.getElementById('header'));
-    ReactDOM.render(<Home values={this.state.fruits} />, document.getElementById('home'));
-    ReactDOM.render(<Footer values={this.state.fruits} changeFruit={this.changeFruit} resetFruit={this.resetFruit} />, document.getElementById('footer'));
+    ReactDOM.render(<Header values={this.state} resetFruit={this.resetFruit} />, document.getElementById('header'));
+    ReactDOM.render(<Home values={this.state} />, document.getElementById('home'));
+    ReactDOM.render(<Footer values={this.state} changeFruit={this.changeFruit} resetFruit={this.resetFruit} />, document.getElementById('footer'));
   }
   // 'componentDidUpdate' doesn't work here
   // render the initial load
   componentDidMount () {
-    this.renderApp();
+    this.configService.get().then((results) => {
+      const branding = {
+        fontStyles: {
+          fontFamily: results.branding.fontstyle,
+          fontSize: results.branding.fontsize,
+        },
+        backgroundStyles: {
+          backgroundColor: results.branding.backgroundcol,
+          backgroundAttachment: results.branding.backgroundattach,
+        },
+        borderStyles: {
+          borderColor: results.branding.bcolor,
+          borderWidth: results.branding.bwidth,
+          borderStyle: results.branding.bstyle
+        }
+      }
+      this.setState({ branding });
+      this.renderApp();
+    });
   }
 
   // render when the state changes

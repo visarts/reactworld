@@ -1,20 +1,29 @@
 const webpack = require('webpack');
+const path = require('path');
+const ROOT_PATH = path.resolve(__dirname);
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
-  entry: ['./src/less/shared/global.less', './src/index.js'],
+  entry: ['./src/less/shared/global.less', './src/index.jsx'],
   output: {
-    path: __dirname + '/dist',
+    path: path.resolve(ROOT_PATH, 'dist'),
     filename: '[name].js'
   },
   plugins: [
 		new CleanWebpackPlugin('dist'),
     new ExtractTextPlugin({
-      filename: '[name].styles.css',
+      filename: 'assets/[name].styles.css',
       allChunks: true
     }),
+    new CopyWebpackPlugin([
+      {
+        from: 'mockup/styledata.json', to: 'assets'
+      }
+    ]),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common'
     }),
@@ -41,8 +50,8 @@ module.exports = {
           ]
         })
 			},
-			{
-				test: /\.js$/,
+      {
+				test: /\.jsx$/,
 				exclude: /node_modules/,
 				use: {
           loader: 'babel-loader',
@@ -58,7 +67,17 @@ module.exports = {
                   }
                 ]
               ],
-             presets: ['es2015', 'react']
+            presets: ['es2015', 'react']
+          }
+        }
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015', 'react']
           }
         }
 			},
@@ -83,5 +102,9 @@ module.exports = {
         use: 'url?limit=10000&mimetype=image/svg+xml'
       }
 		]
-	}
+	},
+  resolve: {
+    extensions: ['*', '.js', '.jsx', '.json']
+  }
+
 };

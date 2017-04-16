@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import '../less/footer.less';
+import { Button } from 'react-bootstrap';
 
 export default class Footer extends React.Component {
   constructor(props) {
@@ -13,13 +13,13 @@ export default class Footer extends React.Component {
         This is the footer component
         <ul styleName="fruitsInput">
           {
-            Object.keys(this.props.values).map(key => {
+            Object.keys(this.props.values.fruits).map(key => {
               return (
                 <li>
                   <strong>{key}: </strong>
-                  <input type="text" size="4" value={this.props.values[key]} onChange={this.props.changeFruit.bind(this, key)} />
+                  <input type="text" size="4" value={this.props.values.fruits[key]} onChange={this.props.changeFruit.bind(this, key)} />
                 </li>
-              )
+              );
             })
           }
           <li>

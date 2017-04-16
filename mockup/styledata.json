@@ -1,0 +1,11 @@
+{
+  "branding": {
+    "fontstyle": "helvetica",
+    "fontsize": "50px",
+    "backgroundcol": "#cdcdef",
+    "backgroundattach": "fixed",
+    "bcolor": "#ccc",
+    "bwidth": "4px",
+    "bstyle": "solid"
+  }
+}
