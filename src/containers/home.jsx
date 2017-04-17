@@ -1,28 +1,33 @@
 import React from 'react';
-import {fontstyle, background, borders, bindStyles} from '../services/vegworldStyleService';
-import '../less/home.less';
+import TestBox from '../components/testBox';
+import WelcomeText from '../components/welcomeText'
+import styles from '../less/home.less';
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.fonts = this.props.values.branding.fontStyles;
+    this.borders = this.props.values.branding.borderStyles;
+    this.backgrounds = this.props.values.branding.backgroundStyles;
   }
   render() {
     return (
-      <div styleName="reactworld_home">
-        This is the home component <span>This is some colored text</span>
-        <ul styleName="fruitsDisplay">
+      <div className={styles.reactworld_home}>
+        <WelcomeText />
+        <ul className={styles.fruitsDisplay}>
           {
             Object.keys(this.props.values.fruits).map(key => {
               return (
                 <li>
-                  <strong>The current value of <span className="label" styleName={key}>{key}</span>: </strong>{this.props.values.fruits[key]}
+                  <strong>
+                    The current value of <span className={styles[key] + ' label'}>{key}</span>:
+                  </strong> {this.props.values.fruits[key]}
                 </li>
               );
             })
           }
         </ul>
-        {/*<div styleName="testtext" {...bindStyles(fontstyle, background, borders)}>Here's some text</div>*/}
-        <div styleName="testtext" style={this.props.values.branding}>Here's some text</div>
+        <TestBox fonts={this.fonts} borders={this.borders} backgrounds={this.backgrounds} />
       </div>
     );
   }

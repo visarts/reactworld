@@ -17,7 +17,9 @@ export default class Footer extends React.Component {
               return (
                 <li>
                   <strong>{key}: </strong>
-                  <input type="text" size="4" value={this.props.values.fruits[key]} onChange={this.props.changeFruit.bind(this, key)} />
+                  <input type="text" size="4"
+                    value={this.props.values.fruits[key]}
+                    onChange={this.props.changeFruit.bind(this, key)} />
                 </li>
               );
             })
