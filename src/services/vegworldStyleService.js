@@ -18,27 +18,20 @@ const borders = {
 
 /** puts all given object properties into a
     single 'style' object for use in inline css **/
-const bindStyles = function (selector, ...styles /*...otherTypes*/) {console.log('testing...');
-  let identifier = selector.toString();
-  let element = document.querySelector(`.${identifier}`);
-  if (element) {
-    for(let i in styles) {
+const bindStyles = function (...styles) {
+  console.log(styles);
+  if (styles.length) {
+    let element = {
+      style: {}
+    }
+    for (let i in styles) {
       Object.keys(styles[i]).map((prop) => {
         element.style[prop] = styles[i][prop];
       });
     }
-    //thing.style.backgroundColor = 'maroon';
-    //thing.style.color = 'white';
+    return element;
   }
-  /*let types = Object.assign({}, type1);
-  if (otherTypes.length) {
-    for (let i in otherTypes) {
-      Object.assign(types, otherTypes[i]);
-    }
-  }
-  return {
-    style: types
-  };*/
+
 };
 
 export {
