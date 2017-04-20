@@ -1,15 +1,14 @@
 import React from 'react';
 import GatewayService from '../services/gatewayService';
 import Nav from '../components/nav';
-import '../less/header.less';
+import styles from '../less/header.less';
 
 export default class Header extends React.Component {
   constructor (props, gatewayService) {
     super (props);
     this.state = {
       stuff: '',
-      headline: 'This is the header component and here is the data:',
-      spanClass: 'greentext'
+      headline: 'This is the header component and here is the data:'
     }
     this.gatewayService = new GatewayService;
     this.changeHeadline = this.changeHeadline.bind(this);
@@ -50,9 +49,9 @@ export default class Header extends React.Component {
   /** render method **/
   render () {
     return (
-      <div styleName="reactworld_header">
+      <div className={styles.reactworldHeader}>
         <h1>{this.state.headline}</h1>
-        <p><span styleName={ this.state.spanClass }>{ this.state.newStuff }</span></p>
+        <p><span className={ styles.greentext }>{ this.state.newStuff }</span></p>
         <Nav
           values={this.props.values.fruits}
           resetFruit={this.props.resetFruit}

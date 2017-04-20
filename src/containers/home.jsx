@@ -13,7 +13,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className={styles.reactworld_home}>
-        <WelcomeText />
+        <WelcomeText {...this.props} />
         <ul className={styles.fruitsDisplay}>
           {
             Object.keys(this.props.values.fruits).map(key => {

@@ -56,17 +56,17 @@ module.exports = {
 				use: {
           loader: 'babel-loader',
           options: {
-            plugins: [
-                [
-                  'react-css-modules',
-                  {
-                    'generateScopedName': '[name]___[local]',
-                    'filetypes': {
-                      '.less': 'postcss-less'
-                    }
-                  }
-                ]
-              ],
+            // plugins: [
+            //     [
+            //       'react-css-modules',
+            //       {
+            //         'generateScopedName': '[name]___[local]',
+            //         'filetypes': {
+            //           '.less': 'postcss-less'
+            //         }
+            //       }
+            //     ]
+            //   ],
             presets: ['es2015', 'react']
           }
         }

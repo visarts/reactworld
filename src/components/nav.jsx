@@ -1,10 +1,10 @@
 import React from 'react';
-import '../less/nav.less';
+import styles from '../less/nav.less';
 
 export default function Nav (props) {
 
   return (
-    <div styleName="reactworld_nav">
+    <div className={styles.reactworldNav}>
       <div>
         <a href="#" onClick={props.resetFruit}>Home</a>
         <a href="#" onClick={props.changeHeadline.bind(this, 'Here\'s the Fruit Headline and some Data:')}>Fruits</a>
