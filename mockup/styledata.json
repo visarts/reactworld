@@ -2,10 +2,12 @@
   "branding": {
     "fontstyle": "helvetica",
     "fontsize": "50px",
-    "backgroundcol": "#cacfdd",
+    "fontcol": "#fff",
+    "textsh": "-2px 2px 8px #333",
+    "backgroundcol": "-webkit-linear-gradient(red, blue), linear-gradient(red, blue)",
     "backgroundattach": "fixed",
-    "bcolor": "#ccc",
-    "bwidth": "4px",
+    "bcolor": "#555",
+    "bwidth": "6px",
     "bstyle": "solid"
   }
 }

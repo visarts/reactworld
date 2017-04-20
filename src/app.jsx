@@ -38,10 +38,11 @@ export default class App extends React.Component {
         fontStyles: {
           fontFamily: results.branding.fontstyle,
           fontSize: results.branding.fontsize,
+          color: results.branding.fontcol,
+          textShadow: results.branding.textsh
         },
         backgroundStyles: {
-          backgroundColor: results.branding.backgroundcol,
-          backgroundAttachment: results.branding.backgroundattach,
+          background: results.branding.backgroundcol
         },
         borderStyles: {
           borderColor: results.branding.bcolor,

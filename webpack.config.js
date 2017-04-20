@@ -24,17 +24,13 @@ module.exports = {
         from: 'mockup/styledata.json', to: 'assets'
       }
     ]),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common'
-    }),
     new OptimizeCssAssetsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.optimize.UglifyJsPlugin()
 	],
   module: {
 		rules: [
@@ -45,7 +41,6 @@ module.exports = {
           fallback: 'style-loader',
           use: [
             'css-loader?importLoaders=1&modules&localIdentName=[name]___[local]',
-            'postcss-loader?parser=postcss-less',
             'less-loader'
           ]
         })
@@ -56,17 +51,6 @@ module.exports = {
 				use: {
           loader: 'babel-loader',
           options: {
-            // plugins: [
-            //     [
-            //       'react-css-modules',
-            //       {
-            //         'generateScopedName': '[name]___[local]',
-            //         'filetypes': {
-            //           '.less': 'postcss-less'
-            //         }
-            //       }
-            //     ]
-            //   ],
             presets: ['es2015', 'react']
           }
         }
