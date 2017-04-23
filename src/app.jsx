@@ -25,8 +25,8 @@ export default class App extends React.Component {
   }
 
   renderApp () {
-    ReactDOM.render(<Quotebox />, document.getElementById('quotebox'));
     ReactDOM.render(<Header values={this.state} resetFruit={this.resetFruit} />, document.getElementById('header'));
+    ReactDOM.render(<Quotebox />, document.getElementById('quotebox'));
     ReactDOM.render(<Home values={this.state} />, document.getElementById('home'));
     ReactDOM.render(<Footer values={this.state} changeFruit={this.changeFruit} resetFruit={this.resetFruit} />, document.getElementById('footer'));
   }

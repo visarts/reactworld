@@ -4,7 +4,7 @@
     "fontsize": "50px",
     "fontcol": "#fff",
     "textsh": "-2px 2px 8px #333",
-    "backgroundcol": "-webkit-linear-gradient(red, blue), linear-gradient(red, blue)",
+    "backgroundcol": "-webkit-linear-gradient(left, #333, #585), linear-gradient(to left, #333, #585)",
     "backgroundattach": "fixed",
     "bcolor": "#555",
     "bwidth": "6px",

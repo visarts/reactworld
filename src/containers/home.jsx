@@ -12,7 +12,7 @@ export default class Home extends React.Component {
   }
   render() {
     return (
-      <div className={styles.reactworld_home}>
+      <div className={styles.reactworldHome}>
         <WelcomeText {...this.props} />
         <ul className={styles.fruitsDisplay}>
           {
