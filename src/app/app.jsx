@@ -1,11 +1,11 @@
 //just importing something with the file name imports everything from the file
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './containers/header/header';
-import Home from './containers/home/home';
-import Footer from './containers/footer/footer';
-import Quotebox from './components/quoteBox/quotebox';
-import ConfigService from './services/configService';
+import Header from 'app/containers/header/header';
+import Home from 'app/containers/home/home';
+import Footer from 'app/containers/footer/footer';
+import Quotebox from 'app/components/quoteBox/quotebox';
+import ConfigService from 'Services/configService';
 
 //import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 //use 'import * as varName from ...' if the exporting file has multiple export statements

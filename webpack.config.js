@@ -8,7 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
-  entry: ['./src/assets/styles/global.less', './src/index.jsx'],
+  entry: [/*'./src/app/shared/styles/global.less', */'./src/index.jsx'],
   output: {
     path: path.resolve(ROOT_PATH, 'dist'),
     filename: '[name].js'
@@ -21,7 +21,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from: 'mockup/styledata.json', to: 'assets'
+        from: 'src/mockup/styledata.json', to: 'assets'
       }
     ]),
     new OptimizeCssAssetsPlugin(),
@@ -88,7 +88,16 @@ module.exports = {
 		]
 	},
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.json']
+    extensions: ['*', '.js', '.jsx', '.json', '.less'],
+    alias:{
+      Services: path.resolve(__dirname, 'src/app/services'),
+      GlobalStyles: path.resolve(__dirname, 'src/app/shared/styles'),
+      GlobalComponents: path.resolve(__dirname, 'src/app/shared/components')
+    },
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules')
+    ]
   }
 
 };

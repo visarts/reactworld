@@ -1,6 +1,6 @@
 import React from 'react';
-import GatewayService from '../../services/gatewayService';
-import Nav from '../nav/nav';
+import GatewayService from 'Services/gatewayService';
+import Nav from 'app/containers/nav/nav';
 import styles from './header.less';
 
 export default class Header extends React.Component {

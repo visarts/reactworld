@@ -1,5 +1,5 @@
 import React from 'react';
-import {bindStyles} from '../../services/vegworldStyleService';
+import {bindStyles} from 'Services/vegworldStyleService';
 import styles from './testBox.less';
 
 export default function TestBox ({backgrounds, fonts, borders}) {

@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './footer.less';
-import { Button } from 'react-bootstrap';
 
 export default class Footer extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ export default class Footer extends React.Component {
             })
           }
           <li>
-            <Button bsStyle="success" onClick={this.props.resetFruit.bind(this)}>Reset</Button>
+            <button className={`btn btn-success ${styles.btn} ${styles.btnSuccess}`} onClick={this.props.resetFruit.bind(this)}>Reset</button>
           </li>
         </ul>
       </div>

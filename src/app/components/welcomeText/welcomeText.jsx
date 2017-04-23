@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from '../../shared/button/button';
+import Button from 'GlobalComponents/button/button';
 import styles from './welcomeText.less';
 
-export default function WelcomeText ({values}) {console.log(styles);
+export default function WelcomeText ({values}) {
   return (
     <div className={styles.welcomeText}>
       This is the home component

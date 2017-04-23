@@ -1,11 +1,12 @@
 import React from 'react';
-import TestBox from '../../components/testBox/testBox';
-import WelcomeText from '../../components/welcomeText/welcomeText'
-import Button from '../../shared/button/button';
+import TestBox from 'app/components/testBox/testBox';
+import WelcomeText from 'app/components/welcomeText/welcomeText'
+import Button from 'app/shared/components/button/button';
 import styles from './home.less';
 
 export default class Home extends React.Component {
   constructor(props) {
+
     super(props);
     this.fonts = this.props.values.branding.fontStyles;
     this.borders = this.props.values.branding.borderStyles;
