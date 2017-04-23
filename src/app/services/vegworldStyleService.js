@@ -25,7 +25,8 @@ export const browserCheck = {
   //const isBlink = (isChrome || isOpera) && !!window.CSS;
 }
 
-export function bindStyles (...styles) {
+export function bindStyles (..._styles) {
+  let styles = _styles;
   if (styles.length) {
     let element = {
       style: {}

@@ -1,7 +1,7 @@
 import React from 'react';
-import GatewayService from '../services/gatewayService';
-import Nav from './nav';
-import styles from '../less/header.less';
+import GatewayService from '../../services/gatewayService';
+import Nav from '../nav/nav';
+import styles from './header.less';
 
 export default class Header extends React.Component {
   constructor (props, gatewayService) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../less/footer.less';
+import styles from './footer.less';
 import { Button } from 'react-bootstrap';
 
 export default class Footer extends React.Component {

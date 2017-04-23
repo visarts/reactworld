@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../less/nav.less';
+import styles from './nav.less';
 
 export default function Nav (props) {
 

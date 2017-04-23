@@ -8,7 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
-  entry: ['./src/less/shared/global.less', './src/index.jsx'],
+  entry: ['./src/assets/styles/global.less', './src/index.jsx'],
   output: {
     path: path.resolve(ROOT_PATH, 'dist'),
     filename: '[name].js'
@@ -40,7 +40,7 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader?importLoaders=1&modules&localIdentName=[name]___[local]',
+            'css-loader?importLoaders=1&modules&localIdentName=[name]___[local]__[hash:base64:5]',
             'less-loader'
           ]
         })

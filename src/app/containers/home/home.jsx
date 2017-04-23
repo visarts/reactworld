@@ -1,7 +1,8 @@
 import React from 'react';
-import TestBox from '../components/testBox';
-import WelcomeText from '../components/welcomeText'
-import styles from '../less/home.less';
+import TestBox from '../../components/testBox/testBox';
+import WelcomeText from '../../components/welcomeText/welcomeText'
+import Button from '../../shared/button/button';
+import styles from './home.less';
 
 export default class Home extends React.Component {
   constructor(props) {

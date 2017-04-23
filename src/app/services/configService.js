@@ -1,5 +1,5 @@
 import axios from 'axios';
-import styleData from '../../mockup/styledata.json';
+import styleData from '../../../mockup/styledata.json';
 
 export default class ConfigService {
 

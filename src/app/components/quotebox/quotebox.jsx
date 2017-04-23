@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../less/quotebox.less';
+import styles from './quotebox.less';
 
 export default function Quotebox (props) {
   return (

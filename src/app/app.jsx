@@ -1,10 +1,10 @@
 //just importing something with the file name imports everything from the file
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './containers/header';
-import Home from './containers/home';
-import Footer from './containers/footer';
-import Quotebox from './components/quotebox';
+import Header from './containers/header/header';
+import Home from './containers/home/home';
+import Footer from './containers/footer/footer';
+import Quotebox from './components/quoteBox/quotebox';
 import ConfigService from './services/configService';
 
 //import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
