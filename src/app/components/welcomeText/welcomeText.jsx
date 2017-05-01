@@ -8,7 +8,9 @@ export default function WelcomeText ({values}) {
     <div className={styles.welcomeText}>
       This is the home component
       <Button classes={styles.prime} styles={values.branding.fontStyles} isModal={true}>This is a Button</Button>
-      <Modal>
+      <Modal header="Modal Header Text From Props">
+        <p><strong>This is text within the modal</strong></p>
+        <p>Passed in as children</p>
       </Modal>
     </div>
   );

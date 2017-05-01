@@ -8,10 +8,10 @@ export default function Modal (props) {
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h1 id="exampleModalLabel">Modal Header</h1>
+            <h1 id="exampleModalLabel">{props.header}</h1>
           </div>
           <div className="modal-body">
-            Modal Body content
+            {props.children}
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>

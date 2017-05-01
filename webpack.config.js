@@ -24,13 +24,13 @@ module.exports = {
         from: 'src/mockup/styledata.json', to: 'assets'
       }
     ]),
-    new OptimizeCssAssetsPlugin(),
+    //new OptimizeCssAssetsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    //new webpack.optimize.UglifyJsPlugin()
 	],
   module: {
 		rules: [
@@ -90,9 +90,9 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json', '.less'],
     alias:{
-      Services: path.resolve(__dirname, 'src/app/services'),
-      GlobalStyles: path.resolve(__dirname, 'src/app/shared/styles'),
-      GlobalComponents: path.resolve(__dirname, 'src/app/shared/components')
+      Services: path.resolve(ROOT_PATH, 'src/app/services'),
+      GlobalStyles: path.resolve(ROOT_PATH, 'src/app/shared/styles'),
+      GlobalComponents: path.resolve(ROOT_PATH, 'src/app/shared/components')
     },
     modules: [
       path.resolve('./src'),
